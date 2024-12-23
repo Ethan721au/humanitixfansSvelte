@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Input from '$lib/Input/Input.svelte';
 	import { getCollectionProducts } from '$lib/shopify';
 	import type { Cart, CartItem, Collection, Product } from '$lib/shopify/types';
 	import { Wrapper } from './styled';
@@ -62,4 +63,5 @@
 <Wrapper>
 	<div>{collection?.title}</div>
 	<div>{selectedProduct}</div>
+	<Input type="text" bold label={collection?.title} />
 </Wrapper>

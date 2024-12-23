@@ -1,8 +1,23 @@
 <script lang="ts">
-	import { Wrapper } from './styled';
+	import type { Product, ProductVariant } from '$lib/shopify/types';
+	import { Label, Wrapper } from './styled';
+
+	export let type: string;
+	export let name: string;
+	export let label: string | undefined;
+	export let bold: boolean;
+	export let product: Product;
+	export let options: Product[] | ProductVariant[];
+	export let selectedProduct: string;
+	export let onChange: (e: boolean | string) => void;
+	export let checked: boolean;
+	export let value: FormDataEntryValue | undefined | string;
 </script>
 
-<Wrapper type="checkbox">
-	<div>sdfsdf</div>
+<Wrapper {type}>
+	<div>{type}</div>
 	<div>sdfsd345345f</div>
+	<Label bold={bold ? 'true' : 'false'}>
+		{label}
+	</Label>
 </Wrapper>
