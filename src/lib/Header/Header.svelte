@@ -14,7 +14,6 @@
 	} from './styled';
 	import { getContext } from 'svelte';
 	const cart: Cart = getContext('cart');
-	console.log(cart);
 </script>
 
 <Wrapper>

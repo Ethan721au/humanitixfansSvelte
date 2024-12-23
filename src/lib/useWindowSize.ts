@@ -14,7 +14,7 @@ export const useWindowSize = () => {
 		windowSize.set({ width, height });
 
 		// Log the window width for debugging
-		console.log('Window Width:', width);
+		// console.log('Window Width:', width);
 
 		// Update the isMobile store based on window width
 		isMobile.set(width < 600);

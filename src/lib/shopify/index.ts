@@ -113,7 +113,6 @@ export async function getCollections(): Promise<Collection[]> {
 	});
 
 	const shopifyCollections = removeEdgesAndNodes(res?.body?.data?.collections);
-	console.log(shopifyCollections, 'shopifyCollections');
 	const collections = [
 		{
 			handle: '',

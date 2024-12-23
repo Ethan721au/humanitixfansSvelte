@@ -27,7 +27,7 @@
 	}
 
 	const findLowestPriceVariant = () => {
-		console.log(products);
+		// console.log(products);
 		// Check if products is empty or not correctly populated
 		if (!products || products.length === 0) {
 			console.error('No products available');
