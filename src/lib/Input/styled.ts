@@ -16,7 +16,13 @@ export const Wrapper = styled<{ type?: string }>(
   `
 );
 
-export const InputField = styled<{ type?: string }>(
+export const InputField = styled<{
+	type?: string;
+	name?: string;
+	checked?: boolean;
+	id?: string;
+	value: string;
+}>(
 	'input',
 	({ type }) => `
   appearance: none;
@@ -41,7 +47,7 @@ export const InputField = styled<{ type?: string }>(
   `
 );
 
-export const Label = styled<{ bold?: string }>(
+export const Label = styled<{ bold?: string; htmlFor?: string; dataAttr?: string }>(
 	'label',
 	({ bold }) => `
   position: relative;

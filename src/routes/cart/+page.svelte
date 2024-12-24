@@ -7,7 +7,7 @@
 	const cart: Cart = getContext('cart');
 
 	let collections: Collection[] = [];
-	let collection: Collection | undefined;
+	let collection: Collection;
 	let productLine: CartItem | undefined;
 
 	$: if (cart) {

@@ -12,12 +12,13 @@
 	};
 
 	export let cart: Cart | undefined;
-	export let collection: Collection | undefined;
+	export let collection: Collection;
 	let collectionProducts: Product[] = [];
 	let productLine: CartItem | undefined;
 	let selectedProduct: string | undefined;
 	let selectedVariant: string | undefined;
 	let selectedAddOns: AddOn[] = [];
+	let additionalInfo: FormDataEntryValue = 'sdfs';
 
 	$: if (collection) {
 		fetchCollectionProducts();
@@ -61,7 +62,19 @@
 </script>
 
 <Wrapper>
-	<div>{collection?.title}</div>
+	<!-- <div>{collection?.title}</div>
 	<div>{selectedProduct}</div>
-	<Input type="text" bold label={collection?.title} />
+	<div>{additionalInfo}</div> -->
+	<Input
+		type="text"
+		bold
+		label={collection?.title}
+		name="addInfo"
+		value={additionalInfo}
+		onChange={(addInfo) => {
+			if (typeof addInfo === 'string') {
+				additionalInfo = addInfo;
+			}
+		}}
+	/>
 </Wrapper>
