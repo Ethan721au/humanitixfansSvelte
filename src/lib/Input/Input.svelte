@@ -15,17 +15,31 @@
 </script>
 
 <Wrapper {type}>
-	<input
-		{type}
-		{name}
-		{checked}
-		id={product?.id}
-		value={typeof value === 'string' ? value : ''}
-		on:change={(e) => onChange(e.target.value || e.target.checked)}
-	/>
+	{#if name !== 'product' && name !== 'variant'}
+		<input
+			{type}
+			{name}
+			{checked}
+			id={product?.id}
+			value={typeof value === 'string' ? value : ''}
+			on:change={(e) => onChange(e.target.value || e.target.checked)}
+		/>
+	{/if}
 	<Label bold={bold ? 'true' : 'false'} htmlFor={name}>
-		{label}
+		{`${label} *`}
 	</Label>
+	{#if name === 'product' || name === 'variant'}
+		<select id={name} {name} value={selectedProduct} on:change={(e) => onChange(e.target.value)}>
+			<option value="default" disabled>
+				--Select a {name}--
+			</option>
+			{#each options as option (option.id)}
+				<option value={name === 'product' ? option.handle : option.title}>
+					{name === 'product' ? option.description : option.title}
+				</option>
+			{/each}
+		</select>
+	{/if}
 </Wrapper>
 
 <style>
@@ -63,5 +77,12 @@
 		transition: outline-offset 0.2s ease-out;
 		outline: var(--focused-base-outline);
 		outline-offset: var(--focused-base-outline-offset);
+	}
+
+	select {
+		width: 100%;
+		outline: none;
+		border-radius: 4px;
+		border: 1px solid #e5e5e5;
 	}
 </style>
