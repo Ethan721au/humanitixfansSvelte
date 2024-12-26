@@ -18,7 +18,7 @@
 	let selectedProduct: string = 'default';
 	let selectedVariant: string = 'default';
 	let selectedAddOns: AddOn[] = [];
-	let additionalInfo: FormDataEntryValue = 'sdfs';
+	let additionalInfo: FormDataEntryValue;
 
 	$: if (collection?.handle) {
 		fetchCollectionProducts();
@@ -27,6 +27,7 @@
 	$: products = collectionProducts?.filter((p) => p.productType === 'product');
 
 	$: productsWithVariants = products?.filter((product) => product.variants.length > 1);
+	$: console.log('productsWithVariants', productsWithVariants);
 
 	$: if (cart) {
 		productLine = cart.lines.find((line) => line.merchandise.product.handle !== 'add-ons');
@@ -66,7 +67,7 @@
 			<Input
 				type="text"
 				bold
-				label={collection?.title}
+				label={`${collection?.title} *`}
 				options={products}
 				{selectedProduct}
 				name="product"
@@ -80,7 +81,7 @@
 				<Input
 					type="text"
 					bold
-					label={productVariants.options[0].name}
+					label={`${productVariants.options[0].name} *`}
 					options={productVariants.variants}
 					selectedProduct={selectedVariant}
 					name="variant"
@@ -95,7 +96,7 @@
 		<Input
 			type="text"
 			bold
-			label={collection?.title}
+			label="Additional Information"
 			name="addInfo"
 			value={additionalInfo}
 			onChange={(addInfo) => {

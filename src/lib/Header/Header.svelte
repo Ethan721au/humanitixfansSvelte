@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Cart } from '$lib/shopify/types';
+	import type { CartContext } from '$lib/useCart';
 	import {
 		CartIconWrapper,
 		CountBubble,
@@ -13,7 +13,8 @@
 		Wrapper
 	} from './styled';
 	import { getContext } from 'svelte';
-	const cart: Cart = getContext('cart');
+
+	const { cart } = getContext<CartContext>('cart');
 </script>
 
 <Wrapper>

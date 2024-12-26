@@ -22,11 +22,11 @@
 			{checked}
 			id={product?.id}
 			value={typeof value === 'string' ? value : ''}
-			on:change={(e) => onChange(e.target.value || e.target.checked)}
+			on:input={(e) => onChange(e.target.value || e.target.checked)}
 		/>
 	{/if}
 	<Label bold={bold ? 'true' : 'false'} htmlFor={name}>
-		{`${label} *`}
+		{label}
 	</Label>
 	{#if name === 'product' || name === 'variant'}
 		<select id={name} {name} value={selectedProduct} on:change={(e) => onChange(e.target.value)}>
