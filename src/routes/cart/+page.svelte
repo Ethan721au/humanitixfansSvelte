@@ -8,6 +8,20 @@
 	const { cart, addItem } = getContext<CartContext>('cart');
 	export let form;
 	// let { form } = $props();
+	// $: prepareData = form.map((line) => {
+	// 	const product = products.find((p) => p.variants.some((v) => v.id === line.merchandiseId));
+	// 	const variant = product?.variants.find((v) => v.id === line.merchandiseId);
+	// 	const attributes = line.attributes.map((attr) => ({
+	// 		key: attr.key,
+	// 		value: attr.value
+	// 	}));
+
+	// 	if (variant && product) {
+	// 		addCartItem(variant, product, attributes);
+	// 	} else {
+	// 		console.error('Skipping item due to missing product or variant:', line);
+	// 	}
+	// });
 
 	$: addItem(form);
 

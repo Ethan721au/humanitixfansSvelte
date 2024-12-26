@@ -7,3 +7,5 @@ export const TAGS = {
 };
 
 export const HIDDEN_PRODUCT_TAG = 'product_hidden';
+
+export const addOnsKeys = ['Character Name', 'Personalization', 'Quote up to 8 words'];

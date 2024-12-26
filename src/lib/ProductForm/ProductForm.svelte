@@ -27,7 +27,6 @@
 	$: products = collectionProducts?.filter((p) => p.productType === 'product');
 
 	$: productsWithVariants = products?.filter((product) => product.variants.length > 1);
-	$: console.log('productsWithVariants', productsWithVariants);
 
 	$: if (cart) {
 		productLine = cart.lines.find((line) => line.merchandise.product.handle !== 'add-ons');
@@ -64,6 +63,7 @@
 <Wrapper>
 	<form method="POST">
 		<div style="display: flex; flex-direction:column">
+			<input type="hidden" name="collection" value={collection?.handle} />
 			<Input
 				type="text"
 				bold

@@ -212,7 +212,7 @@ export type ShopifyCollectionProductsOperation = {
 		};
 	};
 	variables: {
-		handle: string;
+		handle: string | FormDataEntryValue;
 		reverse?: boolean;
 		sortKey?: string;
 	};

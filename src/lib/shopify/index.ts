@@ -167,7 +167,7 @@ export async function getCollectionProducts({
 	reverse,
 	sortKey
 }: {
-	collection: string;
+	collection: string | FormDataEntryValue;
 	reverse?: boolean;
 	sortKey?: string;
 }): Promise<Product[]> {
