@@ -3,12 +3,14 @@
 	import Header from '$lib/Header/Header.svelte';
 	import '../styles/global.css';
 	import type { PageData } from './$types';
-	import { useCart } from '$lib/useCart';
+	import CartContext from '$lib/Cart/CartContext.svelte';
 
 	let { children, data }: { children: Snippet; data: PageData } = $props();
 
-	setContext('cart', useCart(data.cart));
+	let cartStore = data.cart;
 </script>
 
-<Header />
-<div style="padding-top: 72px;">{@render children()}</div>
+<CartContext initialCart={cartStore}>
+	<Header />
+	<div style="padding-top: 72px;">{@render children()}</div>
+</CartContext>
